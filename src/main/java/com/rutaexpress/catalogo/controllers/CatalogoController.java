@@ -2,6 +2,8 @@ package com.rutaexpress.catalogo.controllers;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,7 @@ import com.rutaexpress.catalogo.services.CatalogoService;
 
 @RestController
 @RequestMapping("/api/catalog/services")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "${app.cors.allowed-origin}")
 public class CatalogoController {
 
     private final CatalogoService catalogoService;
@@ -37,14 +39,15 @@ public class CatalogoController {
     }
 
     @PostMapping
-    public Catalogo crearCatalogo(@RequestBody Catalogo catalogo) {
-        return catalogoService.guardar(catalogo);
+    public ResponseEntity<Catalogo> crearCatalogo(@Valid @RequestBody Catalogo catalogo) {
+        Catalogo creado = catalogoService.guardar(catalogo);
+        return ResponseEntity.status(201).body(creado);
     }
 
     @PutMapping("/{id}")
     public Catalogo actualizarCatalogo(
             @PathVariable Long id,
-            @RequestBody Catalogo catalogo) {
+            @Valid @RequestBody Catalogo catalogo) {
 
         catalogo.setId(id);
 
@@ -57,7 +60,8 @@ public class CatalogoController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminarCatalogo(@PathVariable Long id) {
+    public ResponseEntity<Void> eliminarCatalogo(@PathVariable Long id) {
         catalogoService.eliminar(id);
+        return ResponseEntity.noContent().build();
     }
 }
