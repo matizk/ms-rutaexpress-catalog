@@ -46,5 +46,5 @@ respuesta esperada es `{ "status": "UP" }` cuando PostgreSQL está disponible.
 ## Estado
 
 Implementado con Spring Boot, Java 21, PostgreSQL, validación, Docker y pruebas de la
-regla de capacidad disponible. La rama `matizk` contiene la versión integrada a
-partir del aporte inicial de Daniel.
+regla de capacidad disponible. La rama `main` contiene la versión integrada para la
+entrega, construida a partir del aporte inicial de Daniel.
