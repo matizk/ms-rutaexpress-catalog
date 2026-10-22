@@ -2,6 +2,8 @@
 
 > Ramas del equipo: `matizk` para trabajo personal, `desarrollo` para integración y `main` para la entrega estable. Ver [COLABORACION.md](COLABORACION.md) y la [guía EV2](https://github.com/matizk/ms-rutaexpress-envios/blob/desarrollo/CONTINUAR_EV2_EQUIPO.md). Este ajuste no cambia el código funcional de Catálogo ni certifica el despliegue cloud.
 
+Actualización documental del 21-10-2026 en `matizk`: Catálogo participa en el AWS existente informado por Daniel. El flujo Azure Duoc → aceptación → ticket → tracking del caso `RX-1792623980566` se completó, con confirmación interna de RDS/RabbitMQ atribuida al responsable de infraestructura. [Estado y pendientes de cierre](https://github.com/matizk/ms-rutaexpress-envios/blob/matizk/CONTINUAR_EV2_EQUIPO.md). Esta corrección no modifica código, datos ni infraestructura y queda pendiente de integración documental.
+
 Microservicio de catálogo de RutaExpress para la Entrega 1 de DSY1107.
 
 ## Responsabilidad
@@ -48,5 +50,4 @@ respuesta esperada es `{ "status": "UP" }` cuando PostgreSQL está disponible.
 ## Estado
 
 Implementado con Spring Boot, Java 21, PostgreSQL, validación, Docker y pruebas de la
-regla de capacidad disponible. La rama `main` contiene la versión integrada para la
-entrega, construida a partir del aporte inicial de Daniel.
+regla de capacidad disponible. La rama `main` conserva la entrega anterior, construida a partir del aporte inicial de Daniel; no representa por sí sola el cierre coordinado de EV2.
